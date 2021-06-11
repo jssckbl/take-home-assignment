@@ -17,11 +17,11 @@ function App() {
   };
 
   function handleUpperCase() {
-    console.log('uppercase clicked');
+    console.log(textInput.toUpperCase(), 'uppercase clicked');
   }
 
   function handleLowerCase() {
-    console.log('lowercase clicked');
+    console.log(textInput.toLowerCase(), 'lowercase clicked');
   }
 
   // Add two functions- handleUpperCase and handleLowerCase.
@@ -37,8 +37,12 @@ function App() {
           <textarea onChange={handleChange} value={textInput} />
         </label>
         {/* <input type='submit' value='Submit' /> */}
-        <button onClick={handleUpperCase}>UPPERCASE</button>
-        <button onClick={handleLowerCase}>lowercase</button>
+        <button onClick={handleUpperCase} value={textInput}>
+          UPPERCASE
+        </button>
+        <button onClick={handleLowerCase} value={textInput}>
+          lowercase
+        </button>
       </form>
       <div id='result'>{textOutput}</div>
     </div>
