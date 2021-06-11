@@ -11,21 +11,16 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTextOutput(textInput ? textInput : 'Formatted text will appear here');
+    setTextOutput(textInput ? textInput : 'Please submit text to format!');
   };
 
   const handleUpperCase = () => {
     setTextOutput(textOutput.toUpperCase());
-    console.log(textInput.toUpperCase(), 'uppercase clicked');
   };
 
   const handleLowerCase = () => {
     setTextOutput(textOutput.toLowerCase());
-    console.log(textInput.toLowerCase(), 'lowercase clicked');
   };
-
-  // Add two functions- handleUpperCase and handleLowerCase.
-  // Connect the two functions to the uppercase and lowercase buttons.
 
   return (
     <div className='App'>
