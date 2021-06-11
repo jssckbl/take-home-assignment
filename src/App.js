@@ -2,9 +2,7 @@ import './App.css';
 import React from 'react';
 
 function App() {
-  const [textInput, setTextInput] = React.useState(
-    'Here is some example text.'
-  );
+  const [textInput, setTextInput] = React.useState('');
   const [textOutput, setTextOutput] = React.useState('');
 
   const handleChange = (event) => {
@@ -13,16 +11,18 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTextOutput('Your formatted text will go here!');
+    setTextOutput(textInput ? textInput : 'Formatted text will appear here');
   };
 
-  function handleUpperCase() {
+  const handleUpperCase = () => {
+    setTextOutput(textOutput.toUpperCase());
     console.log(textInput.toUpperCase(), 'uppercase clicked');
-  }
+  };
 
-  function handleLowerCase() {
+  const handleLowerCase = () => {
+    setTextOutput(textOutput.toLowerCase());
     console.log(textInput.toLowerCase(), 'lowercase clicked');
-  }
+  };
 
   // Add two functions- handleUpperCase and handleLowerCase.
   // Connect the two functions to the uppercase and lowercase buttons.
@@ -36,15 +36,11 @@ function App() {
         <label>
           <textarea onChange={handleChange} value={textInput} />
         </label>
-        {/* <input type='submit' value='Submit' /> */}
-        <button onClick={handleUpperCase} value={textInput}>
-          UPPERCASE
-        </button>
-        <button onClick={handleLowerCase} value={textInput}>
-          lowercase
-        </button>
+        <input type='submit' value='Submit' />
       </form>
       <div id='result'>{textOutput}</div>
+      <button onClick={handleUpperCase}>UPPERCASE</button>
+      <button onClick={handleLowerCase}>lowercase</button>
     </div>
   );
 }
