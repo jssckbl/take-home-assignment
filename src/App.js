@@ -11,7 +11,9 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTextOutput(textInput ? textInput : 'Please submit text to format!');
+    setTextOutput(
+      textInput ? textInput : alert('please submit text to format!')
+    );
   };
 
   const handleUpperCase = () => {
